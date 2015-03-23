@@ -8,9 +8,7 @@ class Index(View):
 
 	def get(self,request):
 	
-   		latest_locations = Location.objects.all()
+   		latest_locations_one = Location.objects.filter(citizen_id="1")
+   		latest_locations_two = Location.objects.filter(citizen_id="2")
     	
-    		context = {'latest_locations': latest_locations}
-    	
-    		return render(request, 'map/index.html', context)
-
+    		return render(request, 'map/index.html', {'latest_locations_one':latest_locations_one,'latest_locations_two':latest_locations_two})
