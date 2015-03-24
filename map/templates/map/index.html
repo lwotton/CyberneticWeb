@@ -181,7 +181,7 @@
     ])       
 
 
-    {% for location in latest_locations_one %}
+    {% for location in latest_locations %}
 
          pathOne.push((new google.maps.LatLng({{location.latitude}},{{location.longitude}})))  
         
@@ -202,7 +202,7 @@
     
     function setArray(){
 
-        {% for location in latest_locations_one %}                
+        {% for location in latest_locations %}                
 
             var mark = new google.maps.LatLng({{location.latitude}},{{location.longitude}})
             console.log(mark)
@@ -244,12 +244,12 @@
                         console.log("is in array");
                     } else {
                         console.log("is NOT in array");
-                        pathArray.push(dataArray[0][i])
+                        pathArray.push(dataArray[0])
                     }                
 
                 }
 
-                console.log(pathArray)
+                console.log(pathArray[0][1])
             }  
         })
      }
