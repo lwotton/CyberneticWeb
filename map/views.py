@@ -16,5 +16,6 @@ class Index(View):
 
 @ajax
 def my_view(request):
+
     latest_locations_one_test = Location.objects.filter(citizen_id="1")
     return {latest_locations_one_test}

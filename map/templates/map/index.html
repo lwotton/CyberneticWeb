@@ -17,10 +17,13 @@
       }
     </style>
     <script>
-
+     $( document ).ready(function() {
+    test();
+});
     var map;
     var pathOne = new Array();
     var dataArray = new Array();
+    var pathArray = new Array();
     var heatmap;
     var pointArray;
     var data;
@@ -224,12 +227,30 @@
 
     function test(){
          $.ajax({
+     
             type: "get",
+     
             url: "http://localhost:8000/map/mine",
+     
             success: function(objects){
-            dataArray = $.map(objects, function(el) {return el;});
-            console.log(dataArray[0][1])
-            },
+     
+                dataArray = $.map(objects, function(el) {return el;});
+                
+                var i;
+
+                for(i = 0;i<dataArray[0].length;i++){    
+
+                    if(jQuery.inArray(dataArray[0][i], pathArray)!==-1) {
+                        console.log("is in array");
+                    } else {
+                        console.log("is NOT in array");
+                        pathArray.push(dataArray[0][i])
+                    }                
+
+                }
+
+                console.log(pathArray)
+            }  
         })
      }
 
