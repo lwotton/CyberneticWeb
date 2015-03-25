@@ -17,4 +17,4 @@ class Location(models.Model):
 	weight = models.DecimalField(max_digits=4,decimal_places=2)
 	
 	def __str__(self):
-		return str(self.latitude)+', '+str(self.longitude)+','+str(self.weight)
+		return str(self.latitude)+', '+str(self.longitude)
